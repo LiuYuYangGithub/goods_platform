@@ -325,4 +325,9 @@
   <select id="selectUsername" parameterType="java.lang.String" resultType="com.gp.goods_platform.pojo.User">
     select * from user where username=#{userName}
   </select>
+  <!-->修改密码<-->
+  <update id="updatePassword" parameterType="java.util.Map">
+    update from user set encryptedPassword=#{userPassword} where username=#{userName}
+  </update>
+
 </mapper>

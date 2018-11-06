@@ -4,6 +4,9 @@ import com.gp.goods_platform.dao.UserMapper;
 import com.gp.goods_platform.pojo.User;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 public class MyController {
 
@@ -30,5 +33,14 @@ public class MyController {
         }else {
             System.out.println("用户名或密码为空");
         }
+    }
+
+    //修改密码
+    @PostMapping("/updatePassword")
+    public void updatePassword(@RequestBody User user){
+        Map<String,String> map=new HashMap<String,String>();
+        map.put("userName",user.getUsername());
+        map.put("userPassword",user.getEncryptedPassword());
+        userMapper.updatePassword(map);
     }
 }

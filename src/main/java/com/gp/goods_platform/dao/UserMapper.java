@@ -3,6 +3,8 @@ package com.gp.goods_platform.dao;
 import com.gp.goods_platform.pojo.User;
 import com.gp.goods_platform.pojo.UserExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
@@ -30,4 +32,7 @@ public interface UserMapper {
 
     //username查询
     User selectUsername(String userName);
+
+    //修改密码
+    int updatePassword(Map<String,String> map);
 }

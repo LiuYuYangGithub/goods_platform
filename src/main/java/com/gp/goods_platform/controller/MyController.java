@@ -43,4 +43,11 @@ public class MyController {
         map.put("userPassword",user.getEncryptedPassword());
         userMapper.updatePassword(map);
     }
+
+    //注销
+    @PostMapping("/signout")
+    public void signout(@RequestBody User user){
+        User selectUser=userMapper.selectUsername(user.getUsername());
+        userMapper.deleteByPrimaryKey(selectUser.getUserid());
+    }
 }

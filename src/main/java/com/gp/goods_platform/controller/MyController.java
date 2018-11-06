@@ -50,4 +50,18 @@ public class MyController {
         User selectUser=userMapper.selectUsername(user.getUsername());
         userMapper.deleteByPrimaryKey(selectUser.getUserid());
     }
+
+    //查看基本信息
+    @GetMapping("viewInformation")
+    public User viewInformation(@RequestParam User user){
+        User selectUser=userMapper.selectUsername(user.getUsername());
+        return selectUser;
+    }
+
+    //修改基本信息
+    @PostMapping("changeInformation")
+    public void changeInformation(@RequestBody User user){
+        User selectUser=userMapper.selectUsername(user.getUsername());
+        userMapper.updateByPrimaryKey(selectUser);
+    }
 }

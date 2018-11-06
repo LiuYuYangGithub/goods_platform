@@ -320,4 +320,9 @@
       is_delete = #{isDelete,jdbcType=BIT}
     where userid = #{userid,jdbcType=INTEGER}
   </update>
+
+  <!-->username查询<-->
+  <select id="selectUsername" parameterType="java.lang.String" resultType="com.gp.goods_platform.pojo.User">
+    select * from user where username=#{userName}
+  </select>
 </mapper>
